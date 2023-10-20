@@ -49,5 +49,5 @@ jobs:
             npm install || exit 1
             npm run build || exit 1
             sudo pkill node || exit 1
-            forever start -c "sudo npm run start" ../../
-            "
+            sudo npm run start & npx wait-on http://localhost 
+            exit"

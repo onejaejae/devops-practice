@@ -10,7 +10,7 @@ export const createApp = (client: RedisClient) => {
   app.use(express.json());
 
   app.get("/", (req, res) => {
-    res.status(200).send("hello from express");
+    res.status(200).send("hello from express222");
   });
 
   app.get("/messages", async (req, res) => {

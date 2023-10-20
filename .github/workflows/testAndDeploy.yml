@@ -50,4 +50,4 @@ jobs:
             npm run build || exit 1
             sudo pkill node || exit 1
             forever start -c "sudo npm run start" ../../
-            exit"
+            "

@@ -27,7 +27,9 @@ jobs:
       - name: test build
         run: npm run build
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+    env:
+      AWS_DEFAULT_REGION: ap-northeast-2
     needs: test
     steps:
       - name: Set up SSH

@@ -1,9 +1,9 @@
 config:
   target: http://localhost:4000
   phases:
-    - duration: 5
-      arrivalRate: 30
+    - duration: 2
+      arrivalRate: 10
 scenarios:
   - flow:
       - get:
-          url: "/fibonacci/10"
+          url: "/fibonacci/35"

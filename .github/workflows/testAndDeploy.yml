@@ -28,8 +28,6 @@ jobs:
         run: npm run build
   deploy:
     runs-on: ubuntu-latest
-    env:
-      AWS_EC2_METADATA_DISABLED: true
     needs: test
     steps:
       - name: Set up SSH

@@ -42,6 +42,7 @@ jobs:
       - name: SSH and deploy
         run: |
           ssh ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_PUBLIC_IP}} 
+          "
           cd devops-practice
           git pull || exit 1
           npm install || exit 1
@@ -49,3 +50,4 @@ jobs:
           sudo pkill node || exit 1
           sudo npm run start & npx wait-on http://localhost 
           exit
+          "

@@ -10,7 +10,7 @@ export const createApp = (client: RedisClient) => {
   app.use(express.json());
 
   app.get("/", (req, res) => {
-    res.status(200).send("hello from express1234");
+    res.status(200).send("hello from express12345");
   });
 
   const fibonacciFunc: any = (n: number) => {

@@ -1,9 +1,9 @@
 config:
-  target: http://localhost:4000
+  target: http://3d89dfeeb7eacc95bcfe3f74954df1c6-1844167897.ap-northeast-2.elb.amazonaws.com
   phases:
-    - duration: 2
-      arrivalRate: 10
+    - duration: 5
+      arrivalRate: 30
 scenarios:
   - flow:
       - get:
-          url: "/fibonacci/35"
+          url: "/fibonacci/30"

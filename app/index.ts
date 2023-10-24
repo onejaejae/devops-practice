@@ -15,9 +15,23 @@ const startServer = async () => {
   await client.connect();
 
   const app = createApp(client);
-  app.listen(PORT, () => {
+  const server = app.listen(PORT, () => {
     console.log(`listening on ${PORT}`);
+  });
+  return server;
+};
+
+const server = startServer();
+
+const gracefulShutdown = async () => {
+  const _server = await server;
+  _server.close(() => {
+    // db connection 종료 등...
+    console.log("graceful shutdown");
+    process.exit();
   });
 };
 
-startServer();
+process.on("SIGTERM", gracefulShutdown);
+
+process.on("SIGINT", gracefulShutdown);

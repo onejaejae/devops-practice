@@ -2,7 +2,7 @@ config:
   target: http://3d89dfeeb7eacc95bcfe3f74954df1c6-1844167897.ap-northeast-2.elb.amazonaws.com
   phases:
     - duration: 5
-      arrivalRate: 30
+      arrivalRate: 20
 scenarios:
   - flow:
       - get:

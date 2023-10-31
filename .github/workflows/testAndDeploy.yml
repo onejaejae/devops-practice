@@ -27,4 +27,4 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::754481403410:role/github_onejaejae_devops-practice_OIDC
           role-session-name: sampleSessionName
-          aws-region: ${{env.AWS_REGION}}
+          aws-region: ${{secrets.AWS_REGION}}

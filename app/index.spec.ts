@@ -5,11 +5,11 @@ import { RedisClient, createApp } from "./app";
 let app: Express.Application;
 let client: RedisClient;
 
-const REDIS_URL = "redis://default:test_env@localhost:6380";
+// const REDIS_URL = "redis://default:test_env@localhost:6380";
 
 beforeAll(async () => {
   client = redis.createClient({
-    url: REDIS_URL,
+    url: process.env.TEST_REDIS_URL,
   });
   await client.connect();
   app = createApp(client);
@@ -31,7 +31,7 @@ describe("POST /messages", () => {
       .send({ messages: "testing with redis" });
 
     expect(res.statusCode).toBe(200);
-    expect(res.text).toBe("Message add in list");
+    expect(res.text).toBe("Message add in list!");
   });
 });
 

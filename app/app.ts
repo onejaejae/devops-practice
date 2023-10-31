@@ -9,8 +9,13 @@ export const createApp = (client: RedisClient) => {
 
   app.use(express.json());
 
-  app.get("/", (req, res) => {
-    res.status(200).send("hello from express12345");
+  app.get("/crash", () => {
+    console.log("server crashing!");
+    process.exit();
+  });
+
+  app.get("/", (_req, res) => {
+    res.status(200).send("new version!");
   });
 
   const fibonacciFunc: any = (n: number) => {
@@ -25,7 +30,7 @@ export const createApp = (client: RedisClient) => {
     res.send(`n: ${n} fibonacci result = ${result}`);
   });
 
-  app.get("/messages", async (req, res) => {
+  app.get("/messages", async (_req, res) => {
     const messages = await client.lRange(LIST_KEY, 0, -1);
     res.status(200).send(messages);
   });
